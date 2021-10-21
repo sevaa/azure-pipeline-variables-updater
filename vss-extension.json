@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "variableupdater",
   "name": "Shared Variable Updater",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "publisher": "sevaalekseyev",
   "public": true,
   "targets": [
@@ -17,7 +17,8 @@
   "links": {
     "repository": { "uri": "https://github.com/sevaa/azure-pipeline-variables-updater/"},
     "issues": { "uri": "https://github.com/sevaa/azure-pipeline-variables-updater/issues"},
-    "support": {"uri": "https://github.com/sevaa/azure-pipeline-variables-updater/issues"}
+    "support": {"uri": "https://github.com/sevaa/azure-pipeline-variables-updater/issues"},
+    "privacypolicy": {"uri": "https://github.com/sevaa/azure-pipeline-variables-updater/blob/master/PRIVACY.md"}
   },
   "scope": [
     "vso.build",
@@ -37,7 +38,7 @@
   "content": {
     "license": { "path": "license.txt" },
     "details": { "path": "readme.md" },
-    "privacy": { "path": "privacy.md" }
+    "privacypolicy": { "path": "privacy.md" }
   },
   "icons": {
     "default": "icon.png"
