@@ -18,13 +18,38 @@ async function main()
         const varEntry =  Object.entries(vars).find(([key]) => key.toLowerCase() == varName.toLowerCase());
         if(varEntry)
         {
-            console.log(`Old value: ${varEntry[1].value}`);
+            if(!varEntry[1].isSecret)
+                console.log(`Old value: ${varEntry[1].value}`);
             varEntry[1].value = newValue;
         }
         else
             vars[varName] = {value: newValue};
         console.log(`New value: ${newValue}`);
-        await axios.put(groupURL, group, axConf);
+
+        //Separate catch - permission errors deserve special treatment
+        try
+        {
+            await axios.put(groupURL, group, axConf);
+        }
+        catch(exc)
+        {
+            //Write permissions denied? Read permissions are on by default.
+            if(exc.isAxiosError && exc.response && exc.response.status && exc.response.status == 403) 
+            {
+                try
+                {
+                    //Who am I?
+                    const taskUser = (await axios.get(`${process.env.SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}_api/_common/GetUserProfile?__v=5`, axConf)).data.identity.DisplayName;
+                    tl.setResult(tl.TaskResult.Failed, `Received an "Access denied" error during variable group update. Grant the Administrator role to the identity "${taskUser}".`, true);
+                }
+                catch(innerExc)
+                {
+                    throw exc;
+                }
+            }
+            else
+                throw exc;
+        }
     }
     catch(exc)
     {

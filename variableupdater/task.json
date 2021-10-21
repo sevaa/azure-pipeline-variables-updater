@@ -1,22 +1,22 @@
 {
-  "id": "1D7B39B7-F346-4DA5-B089-8ADC274F727B",
+  "id": "153A46E9-10AE-45CD-A088-BAFA748486E6",
   "name": "variableupdater",
-  "friendlyName": "Shared variable updater",
+  "friendlyName": "Shared Variable Updater",
   "description": "Task to update a variable in a variable group (library).",
-  "author": "Bruno Grillo ",
-  "helpMarkDown": "Important: Requires 'Allow Scripts to Access OAuth Token' enabled in the agent job additional options and set administrator role to 'Project Collection Build Service' in the variable group.",
+  "author": "Seva Alekseyev",
+  "helpMarkDown": "You need to assign the Administrator role to the 'Project Collection Build Service' in the variable group's Security window.",
   "category": "Utility",
   "visibility": [
     "Build"
   ],
   "demands": [],
   "version": {
-    "Major": "1",
-    "Minor": "0",
-    "Patch": "5"
+    "Major": 1,
+    "Minor": 0,
+    "Patch":0
   },
   "minimumAgentVersion": "2.117.0",
-  "instanceNameFormat": "Shared variable updater",
+  "instanceNameFormat": "Set shared $(VariableName) to $(NewValue)",
   "groups": [
   ],
   "inputs": [
@@ -25,36 +25,25 @@
       "label": "Variable group Id",
       "type": "string",
       "required": true,
-      "helpMarkDown": "The variable group id."
+      "helpMarkDown": "The numeric ID of the variable group to change. To find it out, browse to the group under Pipelines/Library and note the value of `variableGroupId` in the browser's query string."
     },
     {
       "name": "VariableName",
       "label": "Variable name",
       "type": "string",
       "required": true,
-      "helpMarkDown": "The name of the variable."
+      "helpMarkDown": "The name of the variable to add to the group or update. Case insensitive."
     },
     {
       "name": "NewValue",
       "label": "New value",
       "type": "string",
       "required": false,
-      "helpMarkDown": "New value to set to the variable."
-    },
-    {
-      "name": "UseBasicParsing",
-      "type": "boolean",
-      "label": "Use basic parsing",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Indicates that the cmdlet uses basic parsing (PowerShell 5.1 and lower)"
+      "helpMarkDown": "The value to assign to the variable."
     }
   ],
   "dataSourceBindings": [],
   "execution": {
-    "PowerShell3": {
-      "target": "run-task.ps1"
-    },
     "Node10": {
       "target": "run-task.js"
     }
