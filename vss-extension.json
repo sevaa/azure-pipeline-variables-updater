@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "variableupdater",
   "name": "Shared Variable Updater",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "sevaalekseyev",
   "public": true,
   "targets": [

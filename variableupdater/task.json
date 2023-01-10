@@ -13,7 +13,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch":1
+    "Patch":2
   },
   "minimumAgentVersion": "2.117.0",
   "instanceNameFormat": "Set shared $(VariableName) to $(NewValue)",
@@ -45,6 +45,9 @@
   "dataSourceBindings": [],
   "execution": {
     "Node10": {
+      "target": "run-task.js"
+    },
+    "Node16": {
       "target": "run-task.js"
     }
   }
