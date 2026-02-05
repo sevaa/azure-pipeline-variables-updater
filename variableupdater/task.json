@@ -13,7 +13,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch":2
+    "Patch":3
   },
   "minimumAgentVersion": "2.117.0",
   "instanceNameFormat": "Set shared $(VariableName) to $(NewValue)",
@@ -48,6 +48,12 @@
       "target": "run-task.js"
     },
     "Node16": {
+      "target": "run-task.js"
+    },
+    "Node20_1": {
+      "target": "run-task.js"
+    },
+    "Node24": {
       "target": "run-task.js"
     }
   }
